@@ -1,4 +1,7 @@
-<template>
+<!-- <template>
+<div class="MainHome">
+  <h1>{{ msg }}</h1>
+</div>
   <v-card
     class="mx-auto"
   >
@@ -23,6 +26,12 @@
           value: 3,
         },
       ],
+      msg: "Hello"
     }),
   }
-</script>
+</script> -->
+
+<template>
+<h1>Home</h1>
+<p>This is the home</p>
+</template>
