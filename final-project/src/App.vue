@@ -1,7 +1,8 @@
 <template>
+  <div class="base">
     <v-toolbar dense>
-      <v-btn>Home</v-btn>
-      <v-btn>Courses</v-btn>
+      <v-btn class="home">Home</v-btn>
+      <v-btn class="courses">Courses</v-btn>
 
       <v-spacer></v-spacer>
 
@@ -16,19 +17,40 @@
 
     <v-content>
       <MainHome/>
+      <CoursesSect/>
     </v-content>
+    <router-view/>
+  </div>
 </template>
+
+<style>
+.base {
+  height: 100vh;
+  width: 100vw;
+  background: #155094;
+}
+.home {
+  background: #371594;
+  padding: 10px;
+  margin: 10px;
+}
+.courses {
+  background: #159459;
+  padding: 10px;
+  margin: 10px;
+}
+</style>
 
 <script>
 import MainHome from './components/MainHome.vue'
-import Courses from './components/Courses.vue'
+import CoursesSect from './components/CoursesSect.vue'
 
 export default {
   name: 'App',
 
   components: {
     MainHome,
-    Courses
+    CoursesSect,
   },
 
   data: () => ({
