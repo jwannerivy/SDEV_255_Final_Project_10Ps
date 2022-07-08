@@ -1,11 +1,9 @@
 <template>
-<div class="home">
-  <v-card
-    class="mx-auto"
-  >
-    <v-list :items="items"></v-list>
-  </v-card>
-</div>
+  <div class="courses">
+    <v-card class="mx-auto">
+      <v-list :items="items"></v-list>
+    </v-card>
+  </div>
 </template>
 
 <script>
@@ -13,15 +11,15 @@
     data: () => ({
       items: [
         {
-          title: 'Item #1',
+          title: 'Course #1',
           value: 1,
         },
         {
-          title: 'Item #2',
+          title: 'Course #2',
           value: 2,
         },
         {
-          title: 'Item #3',
+          title: 'Course #3',
           value: 3,
         },
       ],
