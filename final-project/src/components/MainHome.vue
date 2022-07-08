@@ -4,7 +4,7 @@
   >
     <v-list :items="items"></v-list>
   </v-card>
-</template>>
+</template>
 
 <script>
   export default {
