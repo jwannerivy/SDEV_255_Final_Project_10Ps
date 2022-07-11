@@ -1,8 +1,8 @@
-<template>
+<!-- <template>
   <div class="base">
     <v-toolbar dense>
       <v-btn class="home">Home</v-btn>
-      <v-btn class="courses">Courses</v-btn>
+      <v-btn class="courses" href="#/Courses">Courses</v-btn>
 
       <v-spacer></v-spacer>
 
@@ -21,9 +21,9 @@
     </v-content>
     <router-view/>
   </div>
-</template>
+</template> -->
 
-<style>
+<!-- <style>
 .base {
   height: 100vh;
   width: 100vw;
@@ -39,9 +39,9 @@
   padding: 10px;
   margin: 10px;
 }
-</style>
+</style> -->
 
-<script>
+<!-- <script>
 import MainHome from './components/MainHome.vue'
 import CoursesSect from './components/CoursesSect.vue'
 
@@ -57,4 +57,61 @@ export default {
     //
   }),
 }
+</script> -->
+
+
+<script>
+
+import MainHome from './components/MainHome.vue'
+import MainCourses from './components/CoursesSect.vue'
+import TeacherSignIn from './components/SignIn'
+
+const routes = {
+  '/': MainHome,
+  '/Courses': MainCourses,
+  '/Sign-In': TeacherSignIn
+}
+
+export default {
+  name: 'App',
+
+  components: {
+    MainHome,
+    MainCourses,
+    TeacherSignIn
+  },
+  data() {
+    return {
+      currentPath: window.location.hash
+    }
+  },
+  computed: {
+    currentView() {
+      return routes[this.currentPath.slice(1) || '/']
+    }
+  },
+  mounted() {
+    window.addEventListener('hashchange', () => {
+      this.currentPath = window.location.hash
+    })
+  }
+}
+
 </script>
+
+<template>
+  <v-toolbar dense class="bg-blue-darken-2">
+    <v-btn href="#/">Home</v-btn>
+    <v-btn href="#/Courses">Courses</v-btn>
+
+    <v-spacer></v-spacer>
+
+    <v-btn icon>
+      <v-icon>mdi-magnify</v-icon>
+    </v-btn>
+    <v-btn href="#/Sign-In">Sign In</v-btn>
+
+    
+  </v-toolbar>
+  <component :is="currentView"/>
+</template>

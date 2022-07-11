@@ -1,5 +1,6 @@
 <template>
   <div class="courses">
+    <h1>Course Selection</h1>
     <v-card class="mx-auto">
       <v-list :items="items"></v-list>
     </v-card>
