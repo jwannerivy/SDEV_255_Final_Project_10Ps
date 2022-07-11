@@ -100,7 +100,8 @@ export default {
 </script>
 
 <template>
-  <v-toolbar dense class="bg-blue-darken-2">
+  <v-toolbar dense class="bg-blue-darken-2" :sticky="sticky"
+>
     <v-btn href="#/">Home</v-btn>
     <v-btn href="#/Courses">Courses</v-btn>
 

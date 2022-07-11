@@ -1,11 +1,10 @@
 <template>
   <div class="home">
-
-    <h1 class="title">Home</h1>
     <v-row>
-      <v-col cols="12" sm="3" md="4" v-for="item in items" :key="item">
-        <v-card class="mx-auto" max-width="344">
-          <v-img src="/laptop.png" height="200px" cover></v-img>
+      <!-- cols="4" sm="3" md="4"  -->
+      <v-col v-for="item in items" :key="item">
+        <v-card id="courseView" class="mx-auto" max-width="344">
+          <v-img src="laptop.png" height="200px" cover></v-img>
 
           <v-card-title>
             {{item.title}}
@@ -45,13 +44,8 @@
 
 
 <style>
-#courseView {
-  width: 75%;
-}
-
-.title {
-  text-align: center;
-  padding: 1em;
+#courseView{
+  margin-top: 2em;
 }
 </style>
 
@@ -76,28 +70,28 @@ export default {
     show: false,
     items: [
       {
-        title: "Programming",
+        title: "Programming 101",
         subject: "Programming",
-        description: "Intro Programming Class!",
+        description: "Intro Programming Class! Learn the basics of html,css, and javascript.",
         credits: 3,
         value: 1,
       },
       {
-        title: "Math",
-        subject: "Math",
-        description: "Intro Math Class!",
+        title: "College Algebra",
+        subject: "Mathematics",
+        description: "Intro College Algebra Class!",
         credits: 2,
         value: 2
       },
       {
-        title: "History",
+        title: "US History",
         subject: "History",
         description: "Intro History Class!",
         credits: 3,
         value: 3
       },
       {
-        title:"English",
+        title:"English Comp",
         subject: "English",
         description: "Intro English Class!",
         credits: 4,
