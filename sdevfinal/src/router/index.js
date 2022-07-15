@@ -4,6 +4,7 @@ import CartPage from '../views/CartPage.vue';
 import CourseDetailPage from '../views/CourseDetailPage.vue';
 import CoursesPage from '../views/CoursesPage.vue';
 import SignIn from '../views/SignIn.vue'
+import CreateCourse from '../views/CreateCourse.vue'
 
 Vue.use(VueRouter)
 
@@ -12,7 +13,13 @@ const routes = [
     path: '/courses',
     name: 'courses',
     component: CoursesPage,
-  }, {
+  },
+  {
+    path: '/createcourse',
+    name: 'createcourse',
+    component: CreateCourse,
+  },
+   {
     path: '/courses/:id',
     name: 'courseDetail',
     component: CourseDetailPage,
