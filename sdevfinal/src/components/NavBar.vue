@@ -32,10 +32,9 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 #navItem{
   background-color: transparent;
-  
-  
+  border-radius: 0px;
 }
 </style>

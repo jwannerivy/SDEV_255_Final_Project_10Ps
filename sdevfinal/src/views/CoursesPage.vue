@@ -13,6 +13,7 @@ import { courses } from '../test-data';
 import CoursesGrid from '../components/CoursesGrid.vue';
 import CreateCourse from '../views/CreateCourse.vue';
 import _ from "lodash";
+import axios from 'axios';
 
 
 export default {
@@ -27,7 +28,14 @@ export default {
     };
   },
   mounted() {
-
+    axios.get("./src/coursedata.json").then(
+      response =>
+        (this.courses = response.data.map(item => {
+          item.aptId = this.aptIndex;
+          this.aptIndex++;
+          return item;
+        }))
+    );
   },
   methods: {
     addCourse: function (apt) {
