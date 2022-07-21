@@ -9,12 +9,12 @@
 </template>
 
 <script>
+/* eslint-disable */
 import { courses } from '../test-data';
 import CoursesGrid from '../components/CoursesGrid.vue';
 import CreateCourse from '../views/CreateCourse.vue';
 import _ from "lodash";
 import axios from 'axios';
-
 
 export default {
   name: 'coursesPage',
