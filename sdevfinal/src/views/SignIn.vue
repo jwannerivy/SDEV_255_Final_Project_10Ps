@@ -1,39 +1,22 @@
 <template>
   <form>
     <v-text-field
-      v-model="name"
-      :error-messages="nameErrors"
+      v-model="Username"
+      :error-messages="UsernameErrors"
       :counter="10"
-      label="Name"
+      label="Username"
       required
-      @input="$v.name.$touch()"
-      @blur="$v.name.$touch()"
+      @input="$v.Username.$touch()"
+      @blur="$v.Username.$touch()"
     ></v-text-field>
     <v-text-field
-      v-model="email"
-      :error-messages="emailErrors"
-      label="E-mail"
+      v-model="Password"
+      :error-messages="PasswordErrors"
+      label="Password"
       required
-      @input="$v.email.$touch()"
-      @blur="$v.email.$touch()"
+      @input="$v.Password.$touch()"
+      @blur="$v.Password.$touch()"
     ></v-text-field>
-    <v-select
-      v-model="select"
-      :items="items"
-      :error-messages="selectErrors"
-      label="Item"
-      required
-      @change="$v.select.$touch()"
-      @blur="$v.select.$touch()"
-    ></v-select>
-    <v-checkbox
-      v-model="checkbox"
-      :error-messages="checkboxErrors"
-      label="Do you agree?"
-      required
-      @change="$v.checkbox.$touch()"
-      @blur="$v.checkbox.$touch()"
-    ></v-checkbox>
 
     <v-btn
       class="mr-4"
@@ -49,14 +32,14 @@
 
 <script>
 import { validationMixin } from 'vuelidate'
-import { required, maxLength, email } from 'vuelidate/lib/validators'
+import { required, maxLength} from 'vuelidate/lib/validators'
 
 export default {
     mixins: [validationMixin],
 
     validations: {
-        name: { required, maxLength: maxLength(10) },
-        email: { required, email },
+        Username: { required, maxLength: maxLength(10) },
+        Password: { required, Password: maxLength(10) },
         select: { required },
         checkbox: {
             checked(val) {
@@ -66,16 +49,8 @@ export default {
     },
 
     data: () => ({
-        name: '',
-        email: '',
-        select: null,
-        items: [
-            'Item 1',
-            'Item 2',
-            'Item 3',
-            'Item 4',
-        ],
-        checkbox: false,
+        Username: '',
+        Password: '',
     }),
 
     computed: {
@@ -91,18 +66,18 @@ export default {
             !this.$v.select.required && errors.push('Item is required')
             return errors
         },
-        nameErrors() {
+        UsernameErrors() {
             const errors = []
-            if (!this.$v.name.$dirty) return errors
-            !this.$v.name.maxLength && errors.push('Name must be at most 10 characters long')
-            !this.$v.name.required && errors.push('Name is required.')
+            if (!this.$v.Username.$dirty) return errors
+            !this.$v.Username.maxLength && errors.push('Username must be at most 10 characters long')
+            !this.$v.Username.required && errors.push('Username is required.')
             return errors
         },
-        emailErrors() {
+        PasswordErrors() {
             const errors = []
-            if (!this.$v.email.$dirty) return errors
-            !this.$v.email.email && errors.push('Must be valid e-mail')
-            !this.$v.email.required && errors.push('E-mail is required')
+            if (!this.$v.Password.$dirty) return errors
+            !this.$v.Password.Password && errors.push('Must be valid e-mail')
+            !this.$v.Password.required && errors.push('E-mail is required')
             return errors
         },
     },
@@ -113,10 +88,8 @@ export default {
         },
         clear() {
             this.$v.$reset()
-            this.name = ''
-            this.email = ''
-            this.select = null
-            this.checkbox = false
+            this.Username = ''
+            this.Password = ''
         },
     },
 }
